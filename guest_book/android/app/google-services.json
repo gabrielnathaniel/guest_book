@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "374638417550",
+    "project_id": "guest-book-448f3",
+    "storage_bucket": "guest-book-448f3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:374638417550:android:eb9ad800af5ed3f501dbdf",
+        "android_client_info": {
+          "package_name": "com.example.guest_book"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "374638417550-amg8t61825ipi5dqq380a1agq3qfu2mq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLefCaXp4YBIRm30CPfjcNosfiNNInNEA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "374638417550-amg8t61825ipi5dqq380a1agq3qfu2mq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
