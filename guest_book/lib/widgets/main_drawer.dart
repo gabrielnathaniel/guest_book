@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/screens/pet_screen.dart';
+import 'package:flutter_complete_guide/screens/vehicle_screen.dart';
 
 import '../screens/add_guest_screen.dart';
 
@@ -32,7 +34,7 @@ class MainDrawer extends StatelessWidget {
             alignment: Alignment.centerLeft,
             // color: Theme.of(context).accentColor,
             child: Text(
-              'Guest Book',
+              'Occupant Book',
               style: TextStyle(
                 fontWeight: FontWeight.w900,
                 fontSize: 30,
@@ -44,18 +46,33 @@ class MainDrawer extends StatelessWidget {
             height: 20,
           ),
           buildListTile(
-            'Guest List',
+            'Register Occupant',
+            Icons.person_add_alt_1,
+            () {
+              Navigator.of(context)
+                  .pushReplacementNamed(AddGuestScreen.routeName);
+            },
+          ),
+          buildListTile(
+            'Occupant List',
             Icons.person,
             () {
               Navigator.of(context).pushReplacementNamed('/');
             },
           ),
           buildListTile(
-            'Register Guest',
-            Icons.person_add_alt_1,
+            'Vehicle List',
+            Icons.car_rental,
             () {
               Navigator.of(context)
-                  .pushReplacementNamed(AddGuestScreen.routeName);
+                  .pushReplacementNamed(VehicleScreen.routeName);
+            },
+          ),
+          buildListTile(
+            'Pet List',
+            Icons.pets,
+            () {
+              Navigator.of(context).pushReplacementNamed(PetScreen.routeName);
             },
           ),
         ],

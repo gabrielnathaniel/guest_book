@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:intl/intl.dart';
 
-import '../screens/guest_detail_screen.dart';
 import '../widgets/main_drawer.dart';
 
-class GuestScreen extends StatelessWidget {
+class PetScreen extends StatelessWidget {
+  static const routeName = 'pet-screen';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Building Occupants'),
+        title: const Text('Your Guest'),
       ),
       drawer: MainDrawer(),
       body: StreamBuilder<QuerySnapshot>(
@@ -43,25 +43,12 @@ class GuestScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              title: Text(
-                DateFormat.yMMMEd().add_jm().format(
-                      guestDocs[index]['date'].toDate(),
-                    ),
-              ),
-              subtitle: Text(guestDocs[index]['information']),
-              onTap: () {
-                Navigator.of(context).pushNamed(
-                  GuestDetailScreen.routeName,
-                  arguments: guestDocs[index].id,
-                );
-              },
+              title: Text(guestDocs[index]['pet']),
+              onTap: () {},
             ),
           );
         },
       ),
-      // const Center(
-      //   child: Text('No guest registered yet.'),
-      // ),
     );
   }
 }

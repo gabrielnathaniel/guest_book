@@ -12,15 +12,17 @@ class AddGuestScreen extends StatelessWidget {
   void _submitGuestForm(
     String name,
     String email,
-    String address,
-    String occassion,
+    String information,
+    String vehicle,
+    String pet,
     // File image,
   ) {
     FirebaseFirestore.instance.collection('guest').add({
       'name': name,
       'email': email,
-      'address': address,
-      'occassion': occassion,
+      'information': information,
+      'vehicle': vehicle,
+      'pet': pet,
       'date': DateTime.now(),
       // 'image': image,
     });

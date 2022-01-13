@@ -4,6 +4,8 @@ import 'package:firebase_core/firebase_core.dart';
 import './screens/guest_screen.dart';
 import './screens/add_guest_screen.dart';
 import './screens/guest_detail_screen.dart';
+import './screens/vehicle_screen.dart';
+import './screens/pet_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,6 +35,8 @@ class MyApp extends StatelessWidget {
       routes: {
         AddGuestScreen.routeName: (ctx) => AddGuestScreen(),
         GuestDetailScreen.routeName: (ctx) => GuestDetailScreen(),
+        VehicleScreen.routeName: (ctx) => VehicleScreen(),
+        PetScreen.routeName: (ctx) => PetScreen(),
       },
     );
   }

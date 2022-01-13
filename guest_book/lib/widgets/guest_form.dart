@@ -11,8 +11,9 @@ class GuestForm extends StatefulWidget {
   final void Function(
     String name,
     String email,
-    String address,
-    String occassion,
+    String information,
+    String vehicle,
+    String pet,
     // File image,
   ) submitFn;
 
@@ -24,8 +25,9 @@ class _GuestFormState extends State<GuestForm> {
   final _formKey = GlobalKey<FormState>();
   String _userName = '';
   String _userEmail = '';
-  String _userAddress = '';
-  String _userOccassion = '';
+  String _userInformation = '';
+  String _userVehicle = '';
+  String _userPet = '';
   // File _userImage;
 
   // void _pickedImage(File image) {
@@ -51,8 +53,9 @@ class _GuestFormState extends State<GuestForm> {
       widget.submitFn(
         _userName.trim(),
         _userEmail.trim(),
-        _userAddress.trim(),
-        _userOccassion.trim(),
+        _userInformation.trim(),
+        _userVehicle.trim(),
+        _userPet.trim(),
         // _userImage,
       );
       Navigator.of(context).pushNamed('/');
@@ -103,24 +106,7 @@ class _GuestFormState extends State<GuestForm> {
                   },
                 ),
                 TextFormField(
-                  decoration: InputDecoration(labelText: 'Address'),
-                  maxLines: 3,
-                  keyboardType: TextInputType.multiline,
-                  validator: (value) {
-                    if (value.isEmpty) {
-                      return 'Please enter an address.';
-                    }
-                    if (value.length < 10) {
-                      return 'Should be at least 10 characters long.';
-                    }
-                    return null;
-                  },
-                  onSaved: (value) {
-                    _userAddress = value;
-                  },
-                ),
-                TextFormField(
-                  key: ValueKey('occassion'),
+                  key: ValueKey('information'),
                   validator: (value) {
                     if (value.isEmpty || value.length < 3) {
                       return 'Please enter at least 3 characters.';
@@ -128,10 +114,42 @@ class _GuestFormState extends State<GuestForm> {
                     return null;
                   },
                   decoration: InputDecoration(
-                    labelText: 'Occassion',
+                    labelText: 'Information',
                   ),
                   onSaved: (value) {
-                    _userOccassion = value;
+                    _userInformation = value;
+                  },
+                ),
+                TextFormField(
+                  key: ValueKey('vehicle'),
+                  validator: (value) {
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    labelText: 'Vehicle (optional)',
+                  ),
+                  onSaved: (value) {
+                    if (value.isEmpty) {
+                      _userVehicle = 'No Vehicle';
+                    } else {
+                      _userVehicle = value;
+                    }
+                  },
+                ),
+                TextFormField(
+                  key: ValueKey('pet'),
+                  validator: (value) {
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    labelText: 'Pet (optional)',
+                  ),
+                  onSaved: (value) {
+                    if (value.isEmpty) {
+                      _userPet = 'No Pet';
+                    } else {
+                      _userPet = value;
+                    }
                   },
                 ),
                 SizedBox(
